@@ -9,7 +9,7 @@ export default function RouteContextProvider({ children }) {
 
   if (route === null) {
     const savedRoute = localStorage.getItem("route", route);
-    savedRoute && setRoute(savedRoute);
+    savedRoute !== null && setRoute(savedRoute);
   }
   useEffect(() => {
     localStorage.setItem("route", route);
