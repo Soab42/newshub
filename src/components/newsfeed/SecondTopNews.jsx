@@ -2,7 +2,7 @@ import { getDate } from "../../utils/getDate";
 
 export default function SecondTopNews({ newsData = {} }) {
   return (
-    <div className="col-span-12 grid grid-cols-12 gap-4 lg:col-span-8">
+    <div className="col-span-12 grid grid-cols-12 gap-4 lg:col-span-8 slideIn">
       {/* <!-- info --> */}
       <div className="col-span-12 md:col-span-6">
         <a href={newsData.url} target="_blank" rel="noreferrer">

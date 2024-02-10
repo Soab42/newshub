@@ -7,9 +7,8 @@ const NewsContext = createContext();
 const useNewsProvider = () => useContext(NewsContext);
 export default function NewsContextProvider({ children }) {
   const { searchValue } = useSearchProvider();
-  const { loading, error, newsData } = useNewsQuery(searchValue);
+  const { loading, error, newsData } = useNewsQuery();
 
-  console.log(searchValue);
   let filteredData;
   if (searchValue) {
     filteredData = newsData?.result?.filter(

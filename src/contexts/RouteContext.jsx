@@ -1,11 +1,19 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const RouteContext = createContext();
 
 const useRouteProvider = () => useContext(RouteContext);
 
 export default function RouteContextProvider({ children }) {
-  const [route, setRoute] = useState("");
+  const [route, setRoute] = useState("general");
+
+  if (route == null) {
+    const savedRoute = localStorage.getItem("route", route);
+    savedRoute && setRoute(savedRoute);
+  }
+  useEffect(() => {
+    localStorage.setItem("route", route);
+  }, [route]);
 
   return (
     <RouteContext.Provider value={{ route, setRoute }}>

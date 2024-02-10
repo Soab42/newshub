@@ -8,12 +8,12 @@ import SearchProvider from "./contexts/SearchContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouteContextProvider>
-      <SearchProvider>
+    <SearchProvider>
+      <RouteContextProvider>
         <NewsContextProvider>
           <App />
         </NewsContextProvider>
-      </SearchProvider>
-    </RouteContextProvider>
+      </RouteContextProvider>
+    </SearchProvider>
   </React.StrictMode>
 );

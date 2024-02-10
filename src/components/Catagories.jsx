@@ -1,8 +1,9 @@
 import { useRouteProvider } from "../contexts/RouteContext";
+import { useSearchProvider } from "../contexts/SearchContext";
 
 export default function Categories() {
   const { route, setRoute } = useRouteProvider();
-
+  const { setSearchValue, searchRef } = useSearchProvider();
   // Function to determine the style based on the current route
   const getLinkStyle = (category) => {
     return {
@@ -10,75 +11,70 @@ export default function Categories() {
     };
   };
 
+  const handleRoute = (route) => {
+    setSearchValue("");
+    searchRef.current.value = "";
+    setRoute(route);
+  };
+
   return (
     <>
       <li>
-        <a href="#" style={getLinkStyle("")} onClick={() => setRoute("")}>
-          Home
-        </a>
-      </li>
-      <li>
-        <a
-          href="#"
+        <button
           style={getLinkStyle("general")}
-          onClick={() => setRoute("general")}
+          onClick={() => handleRoute("general")}
         >
-          General
-        </a>
+          Home
+        </button>
       </li>
+
       <li>
-        <a
-          href="#"
+        <button
           style={getLinkStyle("business")}
-          onClick={() => setRoute("business")}
+          onClick={() => handleRoute("business")}
         >
           Business
-        </a>
+        </button>
       </li>
       <li>
-        <a
-          href="#"
+        <button
           style={getLinkStyle("entertainment")}
-          onClick={() => setRoute("entertainment")}
+          onClick={() => handleRoute("entertainment")}
         >
           Entertainment
-        </a>
+        </button>
       </li>
       <li>
-        <a
-          href="#"
+        <button
           style={getLinkStyle("health")}
-          onClick={() => setRoute("health")}
+          onClick={() => handleRoute("health")}
         >
           Health
-        </a>
+        </button>
       </li>
       <li>
-        <a
-          href="#"
+        <button
           style={getLinkStyle("science")}
-          onClick={() => setRoute("science")}
+          onClick={() => handleRoute("science")}
         >
           Science
-        </a>
+        </button>
       </li>
       <li>
-        <a
-          href="#"
+        <button
           style={getLinkStyle("technology")}
-          onClick={() => setRoute("technology")}
+          onClick={() => handleRoute("technology")}
         >
           Technology
-        </a>
+        </button>
       </li>
       <li>
-        <a
-          href="#"
+        <button
           style={getLinkStyle("sports")}
-          onClick={() => setRoute("sports")}
+          onClick={() => handleRoute("sports")}
         >
           Sports
-        </a>
+        </button>
       </li>
     </>
   );

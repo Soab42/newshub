@@ -1,9 +1,8 @@
-import ThumbSm from "../../assets/thumb.png";
 import { getDate } from "../../utils/getDate";
 
-export default function TrendingTopNews({ newsData }) {
+export default function TrendingTopNews({ newsData = {} }) {
   return (
-    <div className="col-span-12 mb-6 md:col-span-8">
+    <div className="col-span-12 mb-6 md:col-span-8 slideLeft">
       <img
         className="w-full"
         src={newsData?.urlToImage}

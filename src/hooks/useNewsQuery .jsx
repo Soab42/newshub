@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useRouteProvider } from "../contexts/RouteContext";
+import { useSearchProvider } from "../contexts/SearchContext";
 
-function useNewsQuery(q) {
+function useNewsQuery() {
   const [newsData, setNewsData] = useState();
   const [loading, setLoading] = useState({ status: false, message: "" });
   const [error, setError] = useState(null);
   const { route } = useRouteProvider();
+  const { searchValue } = useSearchProvider();
 
   useEffect(() => {
     setLoading({
@@ -14,9 +16,9 @@ function useNewsQuery(q) {
     });
 
     let url = `${import.meta.env.VITE_BASE_URL}${
-      q ? "search?q=" + q : "top-headlines"
+      searchValue ? "search?q=" + searchValue : "top-headlines"
     }`;
-    if (!q && route) {
+    if (!searchValue && route) {
       url += `?category=${route}`;
     }
 
@@ -40,7 +42,7 @@ function useNewsQuery(q) {
         message: "",
       });
     }
-  }, [q, route]);
+  }, [searchValue, route]);
 
   return { newsData, loading, error };
 }

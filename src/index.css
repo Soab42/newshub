@@ -1,3 +1,70 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* NewsfeedSkeleton.css */
+@keyframes skeleton-loading {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+
+.skeleton-loading {
+  animation: skeleton-loading 1.5s infinite linear;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+}
+
+.slideIn {
+  animation: slideIn 1s forwards cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  opacity: 1;
+}
+
+@keyframes slideIn {
+  from {
+    scale: 0.9;
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+.slideLeft {
+  animation: slideFromLeft 1s forwards cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  overflow: hidden;
+  opacity: 1;
+}
+
+@keyframes slideFromLeft {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.slideTop {
+  animation: slideFromTop 1s forwards cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  overflow: hidden;
+  opacity: 1;
+}
+
+@keyframes slideFromTop {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}

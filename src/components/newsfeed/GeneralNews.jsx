@@ -1,7 +1,7 @@
 import { getDate } from "../../utils/getDate";
 export default function GeneralNews({ newsData = {} }) {
   return (
-    <div className="col-span-12 md:col-span-6 lg:col-span-4">
+    <div className="col-span-12 md:col-span-6 lg:col-span-4 slideIn">
       {/* <!-- info --> */}
       <div className="col-span-12 md:col-span-4 flex flex-col h-full justify-between">
         <div>
