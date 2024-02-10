@@ -22,11 +22,16 @@ export default function Categories() {
   return (
     <>
       <li>
+        <button style={getLinkStyle("")} onClick={() => handleRoute("")}>
+          Home
+        </button>
+      </li>
+      <li>
         <button
           style={getLinkStyle("general")}
           onClick={() => handleRoute("general")}
         >
-          Home
+          General
         </button>
       </li>
 

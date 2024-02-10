@@ -4,10 +4,10 @@ import SearchInput from "./SearchInput";
 
 export default function StickyNavBar() {
   return (
-    <nav className="border bg-neutral-800 text-slate-400 py-2 md:py-8 h-16 flex justify-center items-center fixed -left-1 -top-1 w-[102%] z-50 delay-500 duration-500 slideTop">
-      <div className="container mx-auto flex flex-wrap items-center justify-between gap-6 ">
+    <nav className="border bg-neutral-800 text-slate-400 py-2 md:py-8 xl:h-16 h-44 flex justify-center items-center fixed -left-1 -top-1 w-[102%] z-50 delay-500 duration-500 slideTop">
+      <div className="container mx-auto flex xl:flex-row flex-col flex-wrap items-center justify-between gap-6 ">
         {/* <!-- date --> */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4 sm:hidden md:flex">
           <svg
             width="16"
             height="16"
@@ -64,7 +64,9 @@ export default function StickyNavBar() {
           <Catagories />
         </ul>
         {/* <!-- --> */}
-        <SearchInput />
+        <div className="w-full flex justify-end xl:w-auto">
+          <SearchInput />
+        </div>
         {/* </div> */}
         {/* <!-- categories --> */}
         {/* <div className="container mx-auto mt-6"> */}

@@ -5,9 +5,9 @@ const RouteContext = createContext();
 const useRouteProvider = () => useContext(RouteContext);
 
 export default function RouteContextProvider({ children }) {
-  const [route, setRoute] = useState("general");
+  const [route, setRoute] = useState(null);
 
-  if (route == null) {
+  if (route === null) {
     const savedRoute = localStorage.getItem("route", route);
     savedRoute && setRoute(savedRoute);
   }
