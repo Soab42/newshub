@@ -16,7 +16,7 @@ function useNewsQuery() {
       message: "data is fetching! Please wait a moment",
     });
 
-    let url = `${import.meta.env.VITE_BASE_URL}${
+    let url = `${import.meta.env.VITE_BASE_API_URL}${
       searchValue ? "search?q=" + searchValue : "top-headlines"
     }`;
     if (!searchValue && route) {
