@@ -11,7 +11,7 @@ function separateArray(array = []) {
   } else if (array.length >= 16 && array.length <= 20) {
     firstArray = array.slice(0, array.length - 5);
     secondArray = array.slice(array.length - 5);
-  } else if (array.length >= 30) {
+  } else if (array.length >= 20) {
     firstArray = array.slice(0, array.length - 10);
     secondArray = array.slice(array.length - 10);
   }
