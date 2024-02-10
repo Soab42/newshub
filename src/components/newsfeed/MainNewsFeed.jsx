@@ -26,14 +26,14 @@ export default function MainNewsFeed() {
   if (error) {
     // console.log(error);
     content = (
-      <div className="w-96 p-40 bg-red-300 backdrop-blur-xl">
-        <div className="flex w-[50rem] gap-5">
+      <div className="w-96 p-20 bg-red-300 backdrop-blur-xl ">
+        <div className="flex w-[40rem] gap-5">
           <img
             className=" bg-slate-500 rounded-3xl"
             src={ErrorImage}
             alt={error.message}
           />
-          <p className="min-w-fit  px-4 text-7xl flex justify-center items-center  text-rose-500 font-bold slideRightLeft">
+          <p className="min-w-fit  px-4 text-7xl flex justify-center items-center  text-rose-500 font-bold">
             {error.message}
           </p>
         </div>
@@ -76,7 +76,7 @@ export default function MainNewsFeed() {
           &#34; were found.
         </p>
       )}
-      <div className="col-span-12 grid grid-cols-12 gap-6 self-start xl:col-span-8 overflow-hidden ">
+      <div className="col-span-12 grid grid-cols-12 gap-6 self-start xl:col-span-8">
         {content}
       </div>
     </>
