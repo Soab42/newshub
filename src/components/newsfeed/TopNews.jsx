@@ -27,7 +27,7 @@ export default function TopNews({ newsData = {} }) {
           alt={newsData?.author}
         />
         <p className="mt-5 text-base text-[#5C5955]">
-          Published By: {newsData?.author}
+          Published By: {newsData?.author || "Anonymous Author"}
         </p>
       </div>
     </div>
