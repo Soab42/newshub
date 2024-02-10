@@ -19,7 +19,7 @@ function useNewsQuery() {
     let url = `${import.meta.env.VITE_BASE_API_URL}${
       searchValue ? "search?q=" + searchValue : "top-headlines"
     }`;
-    if (!searchValue && route) {
+    if (!searchValue && !route === null && !route === "") {
       url += `?category=${route}`;
     }
 
