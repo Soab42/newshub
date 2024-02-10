@@ -16,7 +16,7 @@ export default function SearchInput() {
   return (
     <div
       className={
-        "flex items-center rounded-full space-x-3 lg:space-x-8 p-1 px-2 relative "
+        "flex items-center rounded-full space-x-3 lg:space-x-8 p-1 px-2 relative slideTop"
       }
     >
       <input
