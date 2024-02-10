@@ -1,10 +1,19 @@
+import Footer from "./components/Footer";
+import Navbar from "./components/NavBar";
+import NewsFeed from "./components/newsfeed/NewsFeed";
+
 function App() {
   return (
-    <>
-      <div className="flex justify-center items-center text-[5rem] bg-slate-900 h-screen  text-sky-600">
-        Welcome! Start Your Coding From Here.
-      </div>
-    </>
+    <div>
+      {/* <!-- Navbar Starts --> */}
+      <Navbar />
+      {/* <!-- Navbar Ends --> */}
+      {/* <!-- main --> */}
+      <NewsFeed />
+      {/* <!-- main ends --> */}
+      {/* <!-- Footer --> */}
+      <Footer />
+    </div>
   );
 }
 
