@@ -4,6 +4,7 @@ import { useSearchProvider } from "../contexts/SearchContext";
 export default function Categories() {
   const { route, setRoute } = useRouteProvider();
   const { setSearchValue, searchRef } = useSearchProvider();
+
   // Function to determine the style based on the current route
   const getLinkStyle = (category) => {
     return {
@@ -11,6 +12,7 @@ export default function Categories() {
     };
   };
 
+  // handle navigation and reset search when navigating
   const handleRoute = (route) => {
     setSearchValue("");
     searchRef.current.value = "";

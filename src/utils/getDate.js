@@ -70,7 +70,7 @@ function formatDate(date, intl) {
     weekdays[weekday] + ", " + day + " " + months[month] + " " + year;
 
   switch (true) {
-    case passedTime.days >= 3:
+    case passedTime.days >= 4:
       return formattedDate;
     case passedTime.days >= 1:
       return passedTime.days + " day ago";

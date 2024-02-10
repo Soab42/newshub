@@ -4,7 +4,7 @@ import TrendingNewsLoader from "../skelitonLoader/TrendingNewsLoader";
 import GeneralNews from "./GeneralNews";
 import TrendingTopNews from "./TrendingTopNews";
 
-export default function RightFeed() {
+export default function TrendingNewsFeed() {
   const { newsData = [], loading } = useNewsProvider();
   const [, secondArray] = separateArray(newsData);
   // return null;

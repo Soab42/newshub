@@ -68,3 +68,21 @@
     opacity: 1;
   }
 }
+
+.slideRightLeft {
+  animation: slideRightToLeft 5s infinite
+    cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  overflow: hidden;
+  opacity: 1;
+}
+
+@keyframes slideRightToLeft {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(30px);
+    opacity: 1;
+  }
+}

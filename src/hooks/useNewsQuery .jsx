@@ -10,6 +10,7 @@ function useNewsQuery() {
   const { searchValue } = useSearchProvider();
 
   useEffect(() => {
+    setError("");
     setLoading({
       status: true,
       message: "data is fetching! Please wait a moment",
