@@ -11,7 +11,7 @@ import { useSearchProvider } from "../../contexts/SearchContext";
 export default function MainNewsFeed() {
   const { newsData = [], loading, error } = useNewsProvider();
   const { searchValue } = useSearchProvider();
-  console.log(newsData);
+
   //separate main Array to show main news feed and trending news feed
   const [firstArray] = separateArray(newsData);
 
@@ -76,7 +76,7 @@ export default function MainNewsFeed() {
           &#34; were found.
         </p>
       )}
-      <div className="col-span-12 grid grid-cols-12 gap-6 self-start xl:col-span-8 overflow-hidden">
+      <div className="col-span-12 grid grid-cols-12 gap-6 self-start xl:col-span-8 overflow-hidden ">
         {content}
       </div>
     </>
