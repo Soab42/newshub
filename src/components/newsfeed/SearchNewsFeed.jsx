@@ -51,8 +51,8 @@ export default function SearchNewsFeed() {
   // if there is problems then show main news feed
   if (!loading.status && !error && newsData.length > 0) {
     content =
-      firstArray &&
-      firstArray?.map((news, i) => {
+      newsData &&
+      newsData?.map((news, i) => {
         return <SearchNews newsData={news} key={i} />;
       });
   }

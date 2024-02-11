@@ -4,6 +4,13 @@
 
 @layer {
 }
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  scroll-behavior: smooth;
+}
 
 /* NewsfeedSkeleton.css */
 @keyframes skeleton-loading {

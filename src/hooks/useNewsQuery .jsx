@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { useRouteProvider } from "../contexts/RouteContext";
 import { useSearchProvider } from "../contexts/SearchContext";
 
-function useNewsQuery() {
+function useNewsQuery(category, search) {
   const [newsData, setNewsData] = useState();
   const [loading, setLoading] = useState({ status: false, message: "" });
   const [error, setError] = useState(null);
   const { route } = useRouteProvider();
   const { searchValue } = useSearchProvider();
-
+  // console.log(newsData);
   useEffect(() => {
     setError("");
     setLoading({
@@ -17,10 +17,22 @@ function useNewsQuery() {
     });
 
     let url = `${import.meta.env.VITE_BASE_API_URL}${
-      searchValue ? "search?q=" + searchValue : "top-headlines"
+      !searchValue ? "top-headlines" : ""
     }`;
-    if (!searchValue && route !== "") {
-      url += `?category=${route}`;
+
+    if (search || searchValue) {
+      console.log();
+      url += `search?q=${search || searchValue}`;
+    }
+    // if (category || route) {
+    //   url += `?category=${category}`;
+    // }
+
+    if (
+      (category && !searchValue && !search) ||
+      (!searchValue && route !== "" && !search)
+    ) {
+      url += `?category=${category || route}`;
     }
 
     try {
@@ -43,7 +55,7 @@ function useNewsQuery() {
         message: "",
       });
     }
-  }, [searchValue, route]);
+  }, [searchValue, route, category, search]);
 
   return { newsData, loading, error };
 }
