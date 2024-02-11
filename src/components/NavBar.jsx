@@ -3,9 +3,15 @@ import { getDate } from "../utils/getDate";
 import Catagories from "./Catagories";
 import SearchInput from "./SearchInput";
 
-const NavBar = () => {
+const NavBar = ({ isScroll }) => {
   return (
-    <nav className="border-b border-black py-6 md:py-8">
+    <nav
+      className={`border-b border-black  ${
+        isScroll
+          ? "fixed top-0 w-full py-2 h-16 bg-neutral-900 text-white z-50 slideTop"
+          : "py-6  md:py-8"
+      }`}
+    >
       <div className="container mx-auto flex flex-wrap items-center justify-between gap-6">
         {/* <!-- date --> */}
         <div className="flex items-center space-x-4">
@@ -62,23 +68,33 @@ const NavBar = () => {
           <span>{getDate("date")}</span>
         </div>
         {/* <!-- Logo --> */}
-        <a href="/">
+        <a href="/" className={isScroll ? "hidden" : ""}>
           <img
             className="max-w-[100px] md:max-w-[165px]"
             src={LWSLogo}
             alt="Lws"
           />
         </a>
+
+        {isScroll && (
+          <div className="">
+            <ul className="flex flex-wrap items-center justify-center gap-5 text-xs font-semibold lg:text-base">
+              <Catagories />
+            </ul>
+          </div>
+        )}
         {/* <!-- Logo Ends --> */}
         {/* <!-- --> */}
         <SearchInput />
       </div>
       {/* <!-- categories --> */}
-      <div className="container mx-auto mt-6">
-        <ul className="flex flex-wrap items-center justify-center gap-5 text-xs font-semibold lg:text-base">
-          <Catagories />
-        </ul>
-      </div>
+      {!isScroll && (
+        <div className="mt-6">
+          <ul className="flex flex-wrap items-center justify-center gap-5 text-xs font-semibold lg:text-base">
+            <Catagories />
+          </ul>
+        </div>
+      )}
     </nav>
   );
 };

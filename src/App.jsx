@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Footer from "./components/Footer";
 import Navbar from "./components/NavBar";
-import StickyNavBar from "./components/StickyNavBar";
 import NewsFeed from "./components/newsfeed/NewsFeed";
 // import useInterSectionObserver from "./hooks/useInterSectionObserver";
 
@@ -12,7 +11,7 @@ function App() {
     // calculate current scroll position for navbar and scrollToTop button
     const updateScrollPosition = () => {
       const currentPosition = document.documentElement.scrollTop;
-      if (currentPosition >= 300) {
+      if (currentPosition >= 200) {
         setScroll(true);
       } else {
         setScroll(false);
@@ -38,7 +37,7 @@ function App() {
   return (
     <div>
       {/* <!-- Navbar Starts --> */}
-      {!scroll ? <Navbar /> : <StickyNavBar />}
+      <Navbar isScroll={scroll} />
       {/* <!-- Navbar Ends --> */}
       {/* <!-- main --> */}
       <NewsFeed />
