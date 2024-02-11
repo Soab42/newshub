@@ -6,11 +6,9 @@ import BlankImage from "../../assets/blank.svg";
 import { useNewsProvider } from "../../contexts/NewsContext";
 import separateArray from "../../utils/separateData";
 import NewsFeedSkeleton from "../skelitonLoader/NewsFeedSkeleton";
-import { useSearchProvider } from "../../contexts/SearchContext";
 
 export default function MainNewsFeed() {
   const { newsData = [], loading, error } = useNewsProvider();
-  const { searchValue } = useSearchProvider();
 
   //separate main Array to show main news feed and trending news feed
   const [firstArray] = separateArray(newsData);
@@ -67,15 +65,6 @@ export default function MainNewsFeed() {
 
   return (
     <>
-      {searchValue && newsData.length > 0 && (
-        <p className="absolute -top-12 text-center text-xl bg-slate-200 container p-1 slideLeft">
-          {newsData.length} news articles related to the keyword &#34;
-          <span className="text-green-600 text-xl font-bold">
-            {searchValue}
-          </span>
-          &#34; were found.
-        </p>
-      )}
       <div className="col-span-12 grid grid-cols-12 gap-6 self-start xl:col-span-8">
         {content}
       </div>

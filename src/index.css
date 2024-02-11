@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer {
+}
+
 /* NewsfeedSkeleton.css */
 @keyframes skeleton-loading {
   0% {

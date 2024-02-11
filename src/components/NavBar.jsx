@@ -1,4 +1,5 @@
 import LWSLogo from "../assets/logo.png";
+import LWSLogoLight from "../assets/logo_light.png";
 import { getDate } from "../utils/getDate";
 import Catagories from "./Catagories";
 import SearchInput from "./SearchInput";
@@ -14,7 +15,9 @@ const NavBar = ({ isScroll }) => {
     >
       <div className="container mx-auto flex flex-wrap items-center justify-between gap-6">
         {/* <!-- date --> */}
-        <div className="flex items-center space-x-4">
+        <div
+          className={`flex items-center space-x-4 ${isScroll ? "hidden" : ""}`}
+        >
           <svg
             width="16"
             height="16"
@@ -67,6 +70,13 @@ const NavBar = ({ isScroll }) => {
           </svg>
           <span>{getDate("date")}</span>
         </div>
+        <a href="/" className={isScroll ? "" : "hidden"}>
+          <img
+            className="max-w-[100px] md:max-w-[165px]"
+            src={LWSLogoLight}
+            alt="Lws"
+          />
+        </a>
         {/* <!-- Logo --> */}
         <a href="/" className={isScroll ? "hidden" : ""}>
           <img
