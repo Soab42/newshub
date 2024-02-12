@@ -25,7 +25,7 @@ export default function MainNewsFeed() {
     // console.log(error);
     content = (
       <div className="w-96 p-20 bg-red-300 backdrop-blur-xl ">
-        <div className="flex w-[40rem] gap-5">
+        <div className="flex w-[0rem] gap-5">
           <img
             className=" bg-slate-500 rounded-3xl"
             src={ErrorImage}
@@ -42,7 +42,7 @@ export default function MainNewsFeed() {
   // show empty data message if there are no items available
   if (!loading.status && !error && newsData.length === 0) {
     content = (
-      <div className="flex w-[50rem] gap-10 items-center p-20">
+      <div className="flex w-[30rem] gap-10 items-center p-20">
         <img src={BlankImage} alt="blank" />
         <p className="text-9xl text-violet-950 w-96">No Data Found!</p>
       </div>

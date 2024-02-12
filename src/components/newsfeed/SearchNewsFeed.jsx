@@ -42,9 +42,9 @@ export default function SearchNewsFeed() {
   // show empty data message if there are no items available
   if (!loading.status && !error && newsData.length === 0) {
     content = (
-      <div className="flex w-[50rem] gap-10 items-center p-20">
+      <div className="flex w-[40rem] gap-10 items-center p-20">
         <img src={BlankImage} alt="blank" />
-        <p className="text-9xl text-violet-950 w-96">No Data Found!</p>
+        <p className="text-8xl text-violet-950">No News Found!</p>
       </div>
     );
   }

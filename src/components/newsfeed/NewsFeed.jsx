@@ -7,9 +7,11 @@ import { categoryList } from "../../utils/categoryList";
 
 import { useRouteProvider } from "../../contexts/RouteContext";
 import CategoryNewsFeed from "./CategoryNewsFeed";
+import { useNewsProvider } from "../../contexts/NewsContext";
 export default function NewsFeed() {
   const { searchValue } = useSearchProvider();
   const { route, setRoute } = useRouteProvider();
+  const { error } = useNewsProvider();
 
   let content;
   if (searchValue) {
@@ -25,7 +27,7 @@ export default function NewsFeed() {
           <MainNewsFeed />
           <TrendingNewsFeed />
         </div>
-        {!route && (
+        {!route && !error && (
           <a
             href="#"
             className=" text-xl underline capitalize duration-200 p-2 w-1/4 float-right hover:bg-text-300/60"
@@ -36,6 +38,7 @@ export default function NewsFeed() {
         )}
 
         {!route &&
+          !error &&
           categoryList.map((cat) => (
             <CategoryNewsFeed cat={cat} key={cat} setRoute={setRoute} />
           ))}
