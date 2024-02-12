@@ -25,16 +25,19 @@ export default function NewsFeed() {
           <MainNewsFeed />
           <TrendingNewsFeed />
         </div>
-        <a
-          href="#"
-          className=" text-xl underline capitalize duration-200 p-2 w-1/4 float-right hover:bg-text-300/60"
-          onClick={() => setRoute("general")}
-        >
-          show all General news...
-        </a>
+        {!route && (
+          <a
+            href="#"
+            className=" text-xl underline capitalize duration-200 p-2 w-1/4 float-right hover:bg-text-300/60"
+            onClick={() => setRoute("general")}
+          >
+            show all General news...
+          </a>
+        )}
+
         {!route &&
           categoryList.map((cat) => (
-            <CategoryNewsFeed cat={cat} key={cat} setRout={setRoute} />
+            <CategoryNewsFeed cat={cat} key={cat} setRoute={setRoute} />
           ))}
       </>
     );

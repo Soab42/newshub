@@ -3,7 +3,7 @@ import CategoryShortNews from "./CategoryShortNews";
 
 export default function CategoryNewsFeed({ cat, setRoute }) {
   return (
-    <React.Fragment key={cat}>
+    <>
       <div className="my-7 relative h-16">
         <p className="category absolute left-[35%] opacity-10 text-green-600 capitalize -top-16  font-bold text-[7rem] ">
           {cat}
@@ -18,11 +18,11 @@ export default function CategoryNewsFeed({ cat, setRoute }) {
       </div>{" "}
       <a
         href="#"
-        className=" text-xl underline capitalize duration-200 p-2 w-1/4 float-right hover:bg-text-300/60"
+        className=" text-xl underline capitalize duration-200 p-2 block float-right hover:bg-text-300/60 pr-56"
         onClick={() => setRoute(cat)}
       >
         show all {cat} news...
       </a>
-    </React.Fragment>
+    </>
   );
 }
