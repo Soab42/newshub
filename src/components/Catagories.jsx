@@ -22,7 +22,10 @@ export default function Categories() {
   return (
     <>
       <li>
-        <button style={getLinkStyle("")} onClick={() => handleRoute("")}>
+        <button
+          style={route ? getLinkStyle("") : { color: "#00d991" }}
+          onClick={() => handleRoute("")}
+        >
           Home
         </button>
       </li>

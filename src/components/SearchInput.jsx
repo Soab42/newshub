@@ -23,6 +23,7 @@ export default function SearchInput() {
         onChange={handleChange}
         type="text"
         ref={searchRef}
+        maxLength={40}
         placeholder="Search news by keywords ..."
         className={`pl-3 font-thin outline-dotted outline-green-600 outline-2  text-black absolute p-1 right-2 duration-300 ${
           !isActive

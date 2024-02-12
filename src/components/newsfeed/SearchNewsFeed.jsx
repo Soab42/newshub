@@ -41,7 +41,7 @@ export default function SearchNewsFeed() {
     content = (
       <div className="flex col-span-12 gap-10 items-center p-20">
         <img src={BlankImage} alt="blank" />
-        <p className="text-7xl text-violet-950 w-full">
+        <p className="text-7xl text-violet-950">
           No News Found about &#34;
           <span className=" text-green-600">{searchValue}</span>&#34;!
         </p>

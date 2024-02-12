@@ -32,7 +32,9 @@ function useNewsQuery(category, search) {
       (category && !searchValue && !search) ||
       (!searchValue && route !== "" && !search)
     ) {
-      url += `?category=${category || route}`;
+      if (route !== null) {
+        url += `?category=${category || route}`;
+      }
     }
 
     try {

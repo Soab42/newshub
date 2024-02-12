@@ -2,11 +2,10 @@ function separateArray(newsData = []) {
   let firstArray;
   let secondArray;
 
-  const route = localStorage.getItem("route");
+  const route = JSON.parse(localStorage.getItem("route"));
 
   let array = [];
-  if (route === "") {
-    // console.log(route);
+  if (!route) {
     array = newsData?.slice(0, 9);
   } else {
     array = newsData;

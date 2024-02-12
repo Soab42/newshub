@@ -7,12 +7,12 @@ const useRouteProvider = () => useContext(RouteContext);
 export default function RouteContextProvider({ children }) {
   const [route, setRoute] = useState(null);
 
-  if (route === null) {
-    const savedRoute = localStorage.getItem("route", route);
-    savedRoute !== null && setRoute(savedRoute);
-  }
   useEffect(() => {
-    localStorage.setItem("route", route);
+    if (route === null) {
+      const savedRoute = JSON.parse(localStorage.getItem("route", route));
+      savedRoute && setRoute(savedRoute);
+    }
+    localStorage.setItem("route", JSON.stringify(route));
   }, [route]);
 
   return (
