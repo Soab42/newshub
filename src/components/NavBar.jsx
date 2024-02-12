@@ -9,7 +9,7 @@ const NavBar = ({ isScroll }) => {
     <nav
       className={`border-b border-black  ${
         isScroll
-          ? "fixed top-0 w-full py-2 h-16 bg-neutral-900 text-white z-50 slideTop"
+          ? "fixed top-0 w-full py-2 h-16 bg-neutral-800 text-white z-50 slideTop"
           : "py-6  md:py-8"
       }`}
     >
