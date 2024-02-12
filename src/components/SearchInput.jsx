@@ -23,7 +23,7 @@ export default function SearchInput() {
         onChange={handleChange}
         type="text"
         ref={searchRef}
-        placeholder="search by keywords ..."
+        placeholder="Search news by keywords ..."
         className={`pl-3 font-thin outline-dotted outline-green-600 outline-2  text-black absolute p-1 right-2 duration-300 ${
           !isActive
             ? "w-0 opacity-0 -z-10"
@@ -40,7 +40,7 @@ export default function SearchInput() {
           className={`duration-500 ${
             isActive
               ? "rotate-[360deg] outline-double  outline-4 outline-green-600  bg-[#00d991]"
-              : "outline-2 outline-dotted bg-white"
+              : " bg-white"
           } p-1 rounded-full z-50 size-8 shadow-black  hover:scale-105 `}
         />
       </button>
