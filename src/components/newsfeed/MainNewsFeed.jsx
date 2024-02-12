@@ -24,8 +24,8 @@ export default function MainNewsFeed() {
   if (error) {
     // console.log(error);
     content = (
-      <div className="w-96 p-20 bg-red-300 backdrop-blur-xl ">
-        <div className="flex w-[0rem] gap-5">
+      <div className="p-20 col-span-16 bg-red-300 backdrop-blur-xl ">
+        <div className="flex w-[30rem] gap-5">
           <img
             className=" bg-slate-500 rounded-3xl"
             src={ErrorImage}

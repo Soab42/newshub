@@ -2,16 +2,13 @@ import SearchNews from "./SearchNews";
 import ErrorImage from "../../assets/server_down1.svg";
 import BlankImage from "../../assets/blank.svg";
 import { useNewsProvider } from "../../contexts/NewsContext";
-import separateArray from "../../utils/separateData";
+
 import SearchLoader from "../skelitonLoader/SearchLoader";
 import { useSearchProvider } from "../../contexts/SearchContext";
 
 export default function SearchNewsFeed() {
   const { newsData = [], loading, error } = useNewsProvider();
   const { searchValue } = useSearchProvider();
-
-  //separate main Array to show main news feed and trending news feed
-  const [firstArray] = separateArray(newsData);
 
   let content;
 
@@ -42,9 +39,11 @@ export default function SearchNewsFeed() {
   // show empty data message if there are no items available
   if (!loading.status && !error && newsData.length === 0) {
     content = (
-      <div className="flex w-[40rem] gap-10 items-center p-20">
+      <div className="flex col-span-12 gap-10 items-center p-20">
         <img src={BlankImage} alt="blank" />
-        <p className="text-8xl text-violet-950">No News Found!</p>
+        <p className="text-8xl text-violet-950 w-full">
+          No News Found about {searchValue}!
+        </p>
       </div>
     );
   }
