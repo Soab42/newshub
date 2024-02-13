@@ -5,7 +5,7 @@ const RouteContext = createContext();
 const useRouteProvider = () => useContext(RouteContext);
 
 export default function RouteContextProvider({ children }) {
-  const [route, setRoute] = useState(null);
+  const [route, setRoute] = useState("");
 
   useEffect(() => {
     if (route === null) {
