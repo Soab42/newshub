@@ -6,13 +6,17 @@ import separateArray from "../../utils/separateData";
 import NewsFeedSkeleton from "../skelitonLoader/NewsFeedSkeleton";
 import useNewsQuery from "../../hooks/useNewsQuery ";
 import TrendingTopNews from "./TrendingTopNews";
+import { useMemo } from "react";
 
 export default function CategoryShortNews({ category }) {
   const { newsData, loading } = useNewsQuery(category);
   //separate main Array to show main news feed and trending news feed
   // const newsData = [];
   // const loading = { status: false };
-  const [firstArray, secondArray] = separateArray(newsData?.articles || []);
+  const [firstArray, secondArray] = useMemo(
+    () => separateArray(newsData?.articles || []),
+    [newsData]
+  );
 
   // console.log(newsData?.articles);
   // console.log(firstArray);

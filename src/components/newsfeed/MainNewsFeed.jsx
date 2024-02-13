@@ -8,7 +8,7 @@ import separateArray from "../../utils/separateData";
 import NewsFeedSkeleton from "../skelitonLoader/NewsFeedSkeleton";
 
 export default function MainNewsFeed() {
-  const { newsData = [], loading, error } = useNewsProvider();
+  const { newsData, isLoading, isError } = useNewsProvider();
 
   //separate main Array to show main news feed and trending news feed
   const [firstArray] = separateArray(newsData);
@@ -16,23 +16,22 @@ export default function MainNewsFeed() {
   let content;
 
   //show news loader when data fetching
-  if (loading.status) {
+  if (isLoading) {
     content = <NewsFeedSkeleton />;
   }
 
   //show error message
-  if (error) {
-    // console.log(error);
+  if (isError) {
     content = (
       <div className="p-20 col-span-16 bg-red-300 backdrop-blur-xl ">
         <div className="flex w-[30rem] gap-5">
           <img
             className=" bg-slate-500 rounded-3xl"
             src={ErrorImage}
-            alt={error.message}
+            alt={isError.message}
           />
           <p className="min-w-fit  px-4 text-7xl flex justify-center items-center  text-rose-500 font-bold">
-            {error.message}
+            {isError.message}
           </p>
         </div>
       </div>
@@ -40,7 +39,7 @@ export default function MainNewsFeed() {
   }
 
   // show empty data message if there are no items available
-  if (!loading.status && !error && newsData.length === 0) {
+  if (!isLoading && !isError && newsData?.length === 0) {
     content = (
       <div className="flex w-[30rem] gap-10 items-center p-20">
         <img src={BlankImage} alt="blank" />
@@ -49,7 +48,7 @@ export default function MainNewsFeed() {
     );
   }
   // if there is problems then show main news feed
-  if (!loading.status && !error && newsData.length > 0) {
+  if (!isLoading && !isError && newsData?.length > 0) {
     content =
       firstArray &&
       firstArray?.map((news, i) => {

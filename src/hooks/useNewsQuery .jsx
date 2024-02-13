@@ -21,20 +21,17 @@ function useNewsQuery(category, search) {
     }`;
 
     if (search || searchValue) {
-      console.log();
       url += `search?q=${search || searchValue}`;
     }
     // if (category || route) {
     //   url += `?category=${category}`;
     // }
 
-    if (
-      (category && !searchValue && !search) ||
-      (!searchValue && route !== "" && !search)
-    ) {
-      if (route !== null) {
-        url += `?category=${category || route}`;
-      }
+    if (category && !searchValue && !search) {
+      url += `?category=${category}`;
+    }
+    if (!category && !search && !searchValue && route) {
+      url += `?category=${route}`;
     }
 
     try {

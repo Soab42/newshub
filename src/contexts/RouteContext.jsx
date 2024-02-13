@@ -11,8 +11,10 @@ export default function RouteContextProvider({ children }) {
     if (route === null) {
       const savedRoute = JSON.parse(localStorage.getItem("route", route));
       savedRoute && setRoute(savedRoute);
+    } else {
+      localStorage.setItem("route", JSON.stringify(route));
     }
-    localStorage.setItem("route", JSON.stringify(route));
+    return () => localStorage.setItem("route", JSON.stringify(route));
   }, [route]);
 
   return (

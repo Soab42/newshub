@@ -5,16 +5,16 @@ import GeneralNews from "./GeneralNews";
 import TrendingTopNews from "./TrendingTopNews";
 
 export default function TrendingNewsFeed() {
-  const { newsData = [], loading } = useNewsProvider();
+  const { newsData = [], isLoading } = useNewsProvider();
   const [, secondArray] = separateArray(newsData);
   // return null;
 
   let content;
 
-  if (loading.status) {
+  if (isLoading) {
     content = <TrendingNewsLoader />;
   }
-  if (!loading.status && newsData) {
+  if (!isLoading && newsData) {
     content =
       secondArray &&
       secondArray?.map((news, i) => {

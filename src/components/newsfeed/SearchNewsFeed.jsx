@@ -7,18 +7,18 @@ import SearchLoader from "../skelitonLoader/SearchLoader";
 import { useSearchProvider } from "../../contexts/SearchContext";
 
 export default function SearchNewsFeed() {
-  const { newsData = [], loading, error } = useNewsProvider();
+  const { newsData = [], isLoading, isError } = useNewsProvider();
   const { searchValue } = useSearchProvider();
 
   let content;
 
   //show news loader when data fetching
-  if (loading.status) {
+  if (isLoading) {
     content = <SearchLoader />;
   }
 
   //show error message
-  if (error) {
+  if (isError) {
     // console.log(error);
     content = (
       <div className="w-96 p-20 bg-red-300 backdrop-blur-xl ">
@@ -26,10 +26,10 @@ export default function SearchNewsFeed() {
           <img
             className=" bg-slate-500 rounded-3xl"
             src={ErrorImage}
-            alt={error.message}
+            alt={isError.message}
           />
           <p className="min-w-fit  px-4 text-7xl flex justify-center items-center  text-rose-500 font-bold">
-            {error.message}
+            {isError.message}
           </p>
         </div>
       </div>
@@ -37,7 +37,7 @@ export default function SearchNewsFeed() {
   }
 
   // show empty data message if there are no items available
-  if (!loading.status && !error && newsData.length === 0) {
+  if (!isLoading && !isError && newsData.length === 0) {
     content = (
       <div className="flex col-span-12 gap-10 items-center p-20">
         <img src={BlankImage} alt="blank" />
@@ -49,7 +49,7 @@ export default function SearchNewsFeed() {
     );
   }
   // if there is problems then show main news feed
-  if (!loading.status && !error && newsData.length > 0) {
+  if (!isLoading && !isError && newsData.length > 0) {
     content =
       newsData &&
       newsData?.map((news, i) => {
