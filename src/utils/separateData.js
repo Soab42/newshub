@@ -2,7 +2,7 @@ function separateArray(newsData = []) {
   let firstArray;
   let secondArray;
 
-  const route = JSON.parse(localStorage.getItem("route"));
+  const route = localStorage.getItem("route");
 
   let array = [];
   if (!route) {
