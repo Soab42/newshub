@@ -30,10 +30,10 @@ export default function NewsFeed() {
         {!route && !error && (
           <a
             href="#"
-            className=" text-xl underline capitalize duration-200 p-2 w-1/4 float-right hover:bg-text-300/60"
+            className=" text-xl underline capitalize duration-200 p-2 block float-right hover:bg-text-300/60 pr-56"
             onClick={() => setRoute("general")}
           >
-            show all General news...
+            see all General news
           </a>
         )}
 

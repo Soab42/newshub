@@ -22,69 +22,77 @@ export default function Categories() {
   return (
     <>
       <li>
-        <button
+        <a
+          href="#"
           style={route ? getLinkStyle("") : { color: "#00d991" }}
           onClick={() => handleRoute("")}
         >
           Home
-        </button>
+        </a>
       </li>
       <li>
-        <button
+        <a
+          href="#"
           style={getLinkStyle("general")}
           onClick={() => handleRoute("general")}
         >
           General
-        </button>
+        </a>
       </li>
 
       <li>
-        <button
+        <a
+          href="#"
           style={getLinkStyle("business")}
           onClick={() => handleRoute("business")}
         >
           Business
-        </button>
+        </a>
       </li>
       <li>
-        <button
+        <a
+          href="#"
           style={getLinkStyle("entertainment")}
           onClick={() => handleRoute("entertainment")}
         >
           Entertainment
-        </button>
+        </a>
       </li>
       <li>
-        <button
+        <a
+          href="#"
           style={getLinkStyle("health")}
           onClick={() => handleRoute("health")}
         >
           Health
-        </button>
+        </a>
       </li>
       <li>
-        <button
+        <a
+          href="#"
           style={getLinkStyle("science")}
           onClick={() => handleRoute("science")}
         >
           Science
-        </button>
+        </a>
       </li>
       <li>
-        <button
+        <a
+          href="#"
           style={getLinkStyle("technology")}
           onClick={() => handleRoute("technology")}
         >
           Technology
-        </button>
+        </a>
       </li>
       <li>
-        <button
+        <a
+          href="#"
           style={getLinkStyle("sports")}
           onClick={() => handleRoute("sports")}
         >
           Sports
-        </button>
+        </a>
       </li>
     </>
   );

@@ -21,7 +21,7 @@ export default function CategoryNewsFeed({ cat, setRoute }) {
         className=" text-xl underline capitalize duration-200 p-2 block float-right hover:bg-text-300/60 pr-56"
         onClick={() => setRoute(cat)}
       >
-        show all {cat} news...
+        see all {cat} news
       </a>
     </>
   );
