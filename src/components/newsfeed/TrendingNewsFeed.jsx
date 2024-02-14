@@ -1,4 +1,5 @@
 import { useNewsProvider } from "../../contexts/NewsContext";
+import { useSearchProvider } from "../../contexts/SearchContext";
 import separateArray from "../../utils/separateData";
 import TrendingNewsLoader from "../skelitonLoader/TrendingNewsLoader";
 import GeneralNews from "./GeneralNews";
@@ -6,7 +7,9 @@ import TrendingTopNews from "./TrendingTopNews";
 
 export default function TrendingNewsFeed() {
   const { newsData = [], isLoading } = useNewsProvider();
-  const [, secondArray] = separateArray(newsData);
+  const { searchValue } = useSearchProvider();
+
+  const [, secondArray] = separateArray(newsData, searchValue);
   // return null;
 
   let content;

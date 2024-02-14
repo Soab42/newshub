@@ -6,12 +6,13 @@ import BlankImage from "../../assets/blank.svg";
 import { useNewsProvider } from "../../contexts/NewsContext";
 import separateArray from "../../utils/separateData";
 import NewsFeedSkeleton from "../skelitonLoader/NewsFeedSkeleton";
+import { useSearchProvider } from "../../contexts/SearchContext";
 
 export default function MainNewsFeed() {
   const { newsData, isLoading, isError } = useNewsProvider();
-
+  const { searchValue } = useSearchProvider();
   //separate main Array to show main news feed and trending news feed
-  const [firstArray] = separateArray(newsData);
+  const [firstArray] = separateArray(newsData, searchValue);
 
   let content;
 

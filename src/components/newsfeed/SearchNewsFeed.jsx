@@ -5,6 +5,8 @@ import { useNewsProvider } from "../../contexts/NewsContext";
 
 import SearchLoader from "../skelitonLoader/SearchLoader";
 import { useSearchProvider } from "../../contexts/SearchContext";
+import MainNewsFeed from "./MainNewsFeed";
+import TrendingNewsFeed from "./TrendingNewsFeed";
 
 export default function SearchNewsFeed() {
   const { newsData = [], isLoading, isError } = useNewsProvider();
@@ -50,11 +52,19 @@ export default function SearchNewsFeed() {
   }
   // if there is problems then show main news feed
   if (!isLoading && !isError && newsData.length > 0) {
-    content =
-      newsData &&
-      newsData?.map((news, i) => {
-        return <SearchNews newsData={news} key={i} />;
-      });
+    // This ui is customized thats why i commented this section thats violet design change issue. But I was thinking that search result should not look like main news feed.
+    // content =
+    //   newsData &&
+    //   newsData?.map((news, i) => {
+    //     return <SearchNews newsData={news} key={i} />;
+    //   });
+
+    content = (
+      <>
+        <MainNewsFeed />
+        <TrendingNewsFeed />
+      </>
+    );
   }
 
   return (
@@ -68,8 +78,8 @@ export default function SearchNewsFeed() {
           &#34; were found.
         </p>
       )}
-
-      <div className="col-span-12 grid grid-cols-12 gap-6 pl-4  xl:col-span-12">
+      <div className="col-span-12 grid grid-cols-12 gap-6 self-start xl:col-span-12">
+        {/* <div className="col-span-12 grid grid-cols-12 gap-6 pl-4  xl:col-span-12"> */}
         {content}
       </div>
     </>

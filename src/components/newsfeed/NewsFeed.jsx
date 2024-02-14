@@ -16,6 +16,7 @@ export default function NewsFeed() {
   let content;
   if (searchValue) {
     content = (
+      // <div className="container mx-auto grid grid-cols-12 gap-8">
       <div className="container mx-auto grid grid-cols-12 gap-8">
         <SearchNewsFeed />
       </div>
